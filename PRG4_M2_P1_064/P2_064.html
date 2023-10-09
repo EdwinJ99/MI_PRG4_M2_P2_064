@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>P2_064</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="header1">P2_064</div>
+
+        <form onsubmit="return validate()">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Nama</td>
+                        <td>:</td>
+                        <td>
+                            <input id="nama" type="text">
+                        </td>
+                        <td id="error_nama" style="color: red;"></td>
+                    </tr>
+                    <tr>
+                        <td>MataKuliah</td>
+                        <td>:</td>
+                        <td>
+                            <select id="matkul">
+                                <option value="">Pilih MataKuliah</option>
+                                <option value="mtk">Matematika</option>
+                                <option value="fisika">Fisika</option>
+                                <option value="kimia">Kimia</option>
+                            </select>
+                        </td>
+                        <td id="error_matakuliah" style="color: red;"></td>
+                    </tr>
+                    <tr>
+                        <td>Nilai</td>
+                        <td>:</td>
+                        <td>
+                            <input type="number" id="nilai" min="1" max="100">
+                        </td>
+                        <td id="error_nilai" style="color: red;"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="button" onclick="alert('Your answer is cancelled')">Batal</button>
+                        </td>
+                        <td></td>
+                        <td>
+                            <input type="submit" value="Kirim">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+
+        <script>
+            function validate(){
+                let nama = document.getElementById("nama").value;
+                let matkul = document.getElementById("matkul").value;
+                let nilai = document.getElementById("nilai").value;
+                let validate = true;
+
+                if(nama.trim() == ""){
+                    document.getElementById("error_nama").innerText = "Harap Isi Nama Anda!";
+                    validate=false;
+                }else{
+                    document.getElementById("error_nama").innerText = "";
+                }
+
+                if(matkul.trim() == ""){
+                    document.getElementById("error_matakuliah").innerText = "Harap Pilih Matakuliah Anda!";
+                    validate=false;
+                }else{
+                    document.getElementById("error_matakuliah").innerText = "";
+                }
+
+                if(nilai == ""){
+                    document.getElementById("error_nilai").innerText = "Harap Isi field Nilai Anda!";
+                    validate=false;
+                }else{
+                    document.getElementById("error_nilai").innerText = "";
+                }
+
+                if (validate) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        </script>
+    </body>
+</html>
